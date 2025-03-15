@@ -16,13 +16,15 @@ namespace FakePitchDetector
     public class FakePitchDetectorConfig : BasePluginConfig
     {
         [JsonPropertyName("ChatPrefix")] public string ChatPrefix { get; set; } = "[{Red}FakePitchFix{Default}]";
+
+        [JsonPropertyName("WarningInterval")] public float WarningInterval { get; set; } = 90.0f;
         [JsonPropertyName("ConfigVersion")] public override int Version { get; set; } = 1;
     }
 
     public class FakePitchDetector : BasePlugin, IPluginConfig<FakePitchDetectorConfig>
     {
         public override string ModuleName => "Fake Pitch Exploit Fix";
-        public override string ModuleVersion => "1.0.0";
+        public override string ModuleVersion => "1.0.4";
         public override string ModuleAuthor => "MeL";
 
         public FakePitchDetectorConfig Config { get; set; } = new();
@@ -65,10 +67,11 @@ namespace FakePitchDetector
                 viewAngles.Fix();
 
                 if (_pitchBlockWarnings.TryGetValue(player!.Index, out var lastWarningTime) &&
-                    !(lastWarningTime + 3 <= Server.CurrentTime))
+                    !(lastWarningTime + Config.WarningInterval <= Server.CurrentTime))
                     return HookResult.Changed;
 
-                Server.PrintToChatAll($"{ChatUtils.FormatMessage(Config.ChatPrefix)} Player {ChatColors.Red}{player.PlayerName}{ChatColors.Default} tried using fake pitch!");
+
+                Server.PrintToChatAll($"{ChatUtils.FormatMessage(Config.ChatPrefix)} Уебан {ChatColors.Red}{player.PlayerName}{ChatColors.Default} пытается использовать fake pitch!");
                 _pitchBlockWarnings[player.Index] = Server.CurrentTime;
 
                 return HookResult.Changed;

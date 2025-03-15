@@ -1,4 +1,5 @@
 {
   "ChatPrefix": "[{Red}FakePitchFix{Default}]",
+  "WarningInterval": 90.0,
   "ConfigVersion": 1
 }
