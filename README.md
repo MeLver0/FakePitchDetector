@@ -34,6 +34,10 @@ If your CS2 server runs on a .NET version other than **.NET 8.0**, you must modi
 - Automatically adjusts their pitch value to **89**.
 - Does not interfere with normal gameplay mechanics.
 
+## Credits
+This project was made possible thanks to the source code available on **hvh.gg**, originally written by **imi-tat0r**. 
+Special thanks to **imi-tat0r** for their contributions to the CS2 plugin development community and for sharing valuable insights that helped shape this project.
+
 ## Support
 For any issues, please open an issue on GitHub or reach out to the CounterStrikeSharp community for assistance.
 
