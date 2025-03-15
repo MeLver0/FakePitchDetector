@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FakePitchDetector")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfd3d7d4d12d03796d9910d56b0ddb6ed03fabb4")]
 [assembly: System.Reflection.AssemblyProductAttribute("FakePitchDetector")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FakePitchDetector")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
