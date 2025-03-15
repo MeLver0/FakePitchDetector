@@ -1,11 +1,11 @@
 using System.Reflection;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using CounterStrikeSharp.API;
-using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Commands;
+using System.Text.Json.Serialization;
+using CounterStrikeSharp.API;
+using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using CounterStrikeSharp.API.Modules.Utils;
 using CSSharpUtils.Extensions;
@@ -13,19 +13,19 @@ using CSSharpUtils.Utils;
 
 namespace FakePitchDetector
 {
-    public class FakePitchFixConfig : BasePluginConfig
+    public class FakePitchDetectorConfig : BasePluginConfig
     {
         [JsonPropertyName("ChatPrefix")] public string ChatPrefix { get; set; } = "[{Red}FakePitchFix{Default}]";
         [JsonPropertyName("ConfigVersion")] public override int Version { get; set; } = 1;
     }
 
-    public class FakePitchFix : BasePlugin, IPluginConfig<FakePitchFixConfig>
+    public class FakePitchDetector : BasePlugin, IPluginConfig<FakePitchDetectorConfig>
     {
         public override string ModuleName => "Fake Pitch Exploit Fix";
         public override string ModuleVersion => "1.0.0";
         public override string ModuleAuthor => "MeL";
 
-        public FakePitchFixConfig Config { get; set; } = new();
+        public FakePitchDetectorConfig Config { get; set; } = new();
 
         public required MemoryFunctionVoid<CCSPlayer_MovementServices, IntPtr> RunCommand;
         private readonly Dictionary<uint, float> _pitchBlockWarnings = new();
@@ -40,7 +40,7 @@ namespace FakePitchDetector
             RunCommand.Hook(OnRunCommand, HookMode.Pre);
         }
 
-        public void OnConfigParsed(FakePitchFixConfig config)
+        public void OnConfigParsed(FakePitchDetectorConfig config)
         {
             Config = config;
             config.Update();
