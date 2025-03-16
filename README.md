@@ -1,7 +1,7 @@
 # FakePitchDetector
 
 ## About
-FakePitchDetector is a Counter-Strike 2 server plugin developed using CounterStrikeSharp. It detects and fixes Fake Pitch Exploit by setting the pitch value to 89 without affecting the player's gameplay experience.
+FakePitchDetector is a Counter-Strike 2 server plugin developed using CounterStrikeSharp. It detects and fixes Fake Pitch Exploit by setting the pitch value to 89 without affecting the player's gameplay experience. FakePitchDetector was developed independently from TeleportFix, AirStackFix, and GameCrashFix, allowing users to choose only the fixes they need without unnecessary overhead.
 
 ## Installation
 ### Requirements:
